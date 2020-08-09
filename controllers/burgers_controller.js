@@ -1,61 +1,40 @@
-const express = require("express");
+var express = require("express");
 
-const router = express.Router();
+var router = express.Router();
 
 // Import the model (cat.js) to use its database functions.
-const burger = require("../models/burger.js");
+var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
+  res.redirect("/burgers");
+});
+
+router.get("/burgers", function(req, res) {
   burger.all(function(data) {
-    const hbsObject = {
+      var handlebarsObject = {
       burgers: data
-    };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
+  };
+  console.log(handlebarsObject);
+  res.render("index", handlebarsObject);
   });
 });
 
-router.post("/api/burgers", function(req, res) {
-  burger.create([
-    "name", "sleepy"
-  ], [
-    req.body.name, req.body.sleepy
-  ], function(result) {
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
-  });
+router.post("/burgers", function(req, res) {
+  burger.create(
+      ["burger_name"], [req.body.b_name], function() {
+          res.redirect("/burgers");
+      });
 });
 
-router.put("/api/burgers/:id", function(req, res) {
-  const condition = "id = " + req.params.id;
-
+router.put("/burgers/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
   console.log("condition", condition);
 
-  burger.update({
-    sleepy: req.body.sleepy
-  }, condition, function(result) {
-    if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
+  burger.update(
+  {"devoured": req.body.devoured}, condition, function(data) {
+          res.redirect("/burgers");
   });
 });
 
-router.delete("/api/burgers/:id", function(req, res) {
-  const condition = "id = " + req.params.id;
-
-  cat.delete(condition, function(result) {
-    if (result.affectedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
-});
-
-// Export routes for server.js to use.
 module.exports = router;
