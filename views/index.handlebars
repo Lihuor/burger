@@ -1,7 +1,7 @@
 <div class="container" id="container">
     <div class="jumbotron" id="header">
     <h1 id="eat"><strong>Eat-Da-Burger!</strong></h1>
-        <img src="/assets/img/burger.png" id="burger">
+    <img src="/public/assets/img/Burger.png" alt="burger" style="height: 200px; width: 400px;">
     </div>
 
 
@@ -10,11 +10,11 @@
             <form class="create-update-form" action="/burgers" method="POST">
 
 			<div class="form-group" id="add">
-                    <h3 class="title">What's in a name? <u>EVERYTHING</u>. Add your burger name here:</h3>
+                    <h3 class="title">What is your favourite burger?</h3>
                     <br>
                     <textarea id="box" class="form-control input-lg" type="text" name="b_name" rows="3"></textarea>
                     </div>
-                <button type="submit" id="order" class="bt btn-default btn-lg">Order Up!</button>
+                <button type="submit" id="order" class="bt btn-default btn-lg">Taking Order!</button>
                 </form>
         </div>
     </div>
@@ -23,7 +23,7 @@
    <hr id="line">
 		<div class="col-sm-4" id="yum">
 			<div class="panel-panel default">
-			<h3 class="title">Say hello to my little friend:</h3>
+			<h3 class="title">Your orders are ready here:</h3>
 				<ul class="list-group">
 				{{#each burgers}}
 					{{#unless this.devoured}}
@@ -33,7 +33,7 @@
 							<span class="input-group-btn">
 								<form action="burgers/{{this.id}}?_method=PUT" method="POST">
 									<input type="hidden" name="devoured" value="true">
-									<button id="button" class="btn btn-default btn-lg" type="submit">OM NOM NOM!</button>
+									<button id="button" class="btn btn-default btn-lg" type="submit">Yummy!</button>
 								</form>
 							</span>
 						</div>
@@ -46,7 +46,7 @@
 </div>
 <div>
 		<div class="col-sm-4" id="devoured">
-		<h3 id="heaven">All good burgers go to heaven:</h3>
+		<h3 id="heaven">Your history list:</h3>
 			<div class="panel panel-default">
 				<ul class="list-group">
 				{{#each burgers}}
