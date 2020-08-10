@@ -1,26 +1,35 @@
-<div class="container" id="container">
-    <div class="jumbotron" id="header">
-    <h1 id="eat"><strong>Eat-Da-Burger!</strong></h1>
-    <img src="/public/assets/img/Burger.png" alt="burger" style="height: 200px; width: 400px;">
-    </div>
+<div class="jumbotron" id="header">
+<h1 id="eat"><strong>Eat-Da-Burger!</strong></h1>
+<div class="row">
+  <div class="column">
+    <img src="/assets/img/Burger.png" alt="beefBurger" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="/assets/img/chickenBurger.png" alt="chickenBurger" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="/assets/img/grillChicken.png" alt="grillChicken" style="width:100%">
+  </div>
+</div>
+</div>
 
 
-    <div class="row">
-        <div class="col-sm-12">
-            <form class="create-update-form" action="/burgers" method="POST">
+<div class="row">
+	<div class="col-sm-12">
+		<form class="create-update-form" action="/burgers" method="POST">
 
-			<div class="form-group" id="add">
-                    <h3 class="title">What is your favourite burger?</h3>
-                    <br>
-                    <textarea id="box" class="form-control input-lg" type="text" name="b_name" rows="3"></textarea>
-                    </div>
-                <button type="submit" id="order" class="bt btn-default btn-lg">Taking Order!</button>
-                </form>
-        </div>
-    </div>
-   <div>
-   <br>
-   <hr id="line">
+		<div class="form-group" id="add">
+				<h3 class="title">What is your favourite burger?</h3>
+				<br>
+				<textarea id="box" class="form-control input-lg" type="text" name="b_name" rows="3"></textarea>
+				</div>
+			<button type="submit" id="order" class="btn btn-primary">Taking Order!</button>
+			</form>
+	</div>
+</div>
+<div>
+<br>
+<hr id="line">
 		<div class="col-sm-4" id="yum">
 			<div class="panel-panel default">
 			<h3 class="title">Your orders are ready here:</h3>

@@ -20,6 +20,8 @@
 
 ### ✨ [Demo](https://burger-logger-02530.herokuapp.com/burgers)
 
+![burgerBackground](public/assets/img/readmeImage.png)
+
 ## Prerequisites
 
 - npm >=5.5.0
